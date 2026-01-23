@@ -1,0 +1,7 @@
+.vscode
+test
+build*
+*.log
+
+#executable names
+bureaucrat
