@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+//#include "GradeTooHighException.hpp"
+//#include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -16,6 +18,10 @@ class Bureaucrat
         int         getGrade() const;
         void        incrementGrade();
         void        decrementGrade();
+
+        //exception classes
+        class GradeTooHighException;
+        class GradeTooLowException;
 
     private:
         const std::string name_;
