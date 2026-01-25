@@ -3,8 +3,6 @@
 
 #include <string>
 #include <iostream>
-//#include "GradeTooHighException.hpp"
-//#include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
