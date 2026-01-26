@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
 #include "terminalOutput.hpp"
+#include <iostream>
 
 int main(void)
 {
@@ -35,7 +35,7 @@ int main(void)
         std::cout << C_RED << e.what() << C_END;
     }
 
-        std::cout << C_YELLOW << "\nTest invalid increment grades\n" << C_END;
+    std::cout << C_YELLOW << "\nTest invalid increment grades\n" << C_END;
     try
     {
         Bureaucrat invalid("Invalid", 2);
@@ -47,7 +47,7 @@ int main(void)
         std::cout << C_RED << e.what() << C_END;
     }
 
-         std::cout << C_YELLOW << "\nTest invalid decrement grades\n" << C_END;
+    std::cout << C_YELLOW << "\nTest invalid decrement grades\n" << C_END;
     try
     {
         Bureaucrat invalid("Invalid", 149);

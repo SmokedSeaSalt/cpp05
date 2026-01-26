@@ -15,8 +15,6 @@ BUILD_DIR = build
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
-		GradeTooHighException.cpp \
-		GradeTooLowException.cpp \
 		Form.cpp
 
 OBJ = $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC))

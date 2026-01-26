@@ -1,6 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "GradeTooHighException.hpp"
-#include "GradeTooLowException.hpp"
 #include "terminalOutput.hpp"
 #include <iostream>
 
@@ -57,4 +55,14 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bc)
 {
     std::cout << C_BLUE << bc.getName() << ", bureaucrat grade " << bc.getGrade() << ".\n" << C_END;
     return os;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const noexcept
+{
+	return "Grade too high!\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const noexcept
+{
+	return "Grade too low!\n";
 }

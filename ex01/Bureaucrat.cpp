@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#include "GradeTooHighException.hpp"
-#include "GradeTooLowException.hpp"
 #include "terminalOutput.hpp"
 #include <iostream>
 
@@ -71,4 +69,14 @@ void Bureaucrat::signForm(Form& form) const
     {
         std::cout << C_RED << this->name_ << " couldn't sign " << form.getName() << " because " << e.what() << C_END << '\n';
     }
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const noexcept
+{
+	return "Bureaucrat: Grade too high!\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const noexcept
+{
+	return "Bureaucrat: Grade too low!\n";
 }

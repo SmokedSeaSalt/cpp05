@@ -1,7 +1,5 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
-#include "GradeTooHighException.hpp"
-#include "GradeTooLowException.hpp"
 #include "terminalOutput.hpp"
 #include <string>
 
@@ -68,4 +66,14 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
               << "Grade to sign: " << form.getGradeRequiredToSign() << "\n"
               << "Grade to execute: " << form.getGradeRequiredToExecute() << "\n" << C_END;
     return os;
+}
+
+const char* Form::GradeTooHighException::what() const noexcept
+{
+	return "Form: Grade too high!\n";
+}
+
+const char* Form::GradeTooLowException::what() const noexcept
+{
+	return "Form: Grade too low!\n";
 }

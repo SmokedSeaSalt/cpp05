@@ -14,9 +14,7 @@ CCDEBUG = -g
 BUILD_DIR = build
 
 SRC = 	main.cpp \
-		Bureaucrat.cpp \
-		GradeTooHighException.cpp \
-		GradeTooLowException.cpp
+		Bureaucrat.cpp
 
 OBJ = $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC))
 DEP = ${OBJ:.o=.d}

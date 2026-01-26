@@ -21,8 +21,16 @@ class Form
         int         getGradeRequiredToSign() const;
         int         getGradeRequiredToExecute() const;
 
-        class GradeTooHighException;
-        class GradeTooLowException;
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const noexcept override;
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const noexcept override;
+        };
 
     private:
         const std::string name_;
