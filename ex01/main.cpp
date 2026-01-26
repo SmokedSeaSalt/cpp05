@@ -62,7 +62,7 @@ int main(void)
         Bureaucrat invalid("Invalid", 100);
         Form f("TestForm", 99, 130);
         std::cout << f;
-        f.beSigned(invalid);
+        invalid.signForm(f);
         std::cout << f;
     }
     catch (std::exception& e)

@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "GradeTooHighException.hpp"
 #include "GradeTooLowException.hpp"
 #include "terminalOutput.hpp"
@@ -57,4 +58,17 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bc)
 {
     std::cout << C_BLUE << bc.getName() << ", bureaucrat grade " << bc.getGrade() << ".\n" << C_END;
     return os;
+}
+
+void Bureaucrat::signForm(Form& form) const
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->name_ << " signed " << form.getName() << "\n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << C_RED << this->name_ << " couldn't sign " << form.getName() << " because " << e.what() << C_END << '\n';
+    }
 }
