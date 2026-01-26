@@ -2,10 +2,10 @@
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return "Grade too high!\n";
+	return "Bureaucrat: Grade too high!\n";
 }
 
 const char* Form::GradeTooHighException::what() const noexcept
 {
-	return "Grade too high!\n";
+	return "Form: Grade too high!\n";
 }

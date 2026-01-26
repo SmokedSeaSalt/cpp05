@@ -14,9 +14,10 @@ class Form
 
         void beSigned(const Bureaucrat& bureaucrat);
 
-        bool getIsSigned() const;
-        int  getGradeRequiredToSign() const;
-        int  getGradeRequiredToExecute() const;
+        std::string getName() const;
+        bool        getIsSigned() const;
+        int         getGradeRequiredToSign() const;
+        int         getGradeRequiredToExecute() const;
 
         class GradeTooHighException;
         class GradeTooLowException;

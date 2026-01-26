@@ -18,8 +18,8 @@ Form::Form(std::string name, int gradeToSign, int GradeToExecute)
 Form::~Form() {}
 
 Form::Form(const Form& other)
-    : name_(other.name_), gradeRequiredToSign_(other.gradeRequiredToSign_),
-      gradeRequiredToExecute_(other.gradeRequiredToExecute_), isSigned_(other.isSigned_)
+    : name_(other.name_), isSigned_(other.isSigned_), gradeRequiredToSign_(other.gradeRequiredToSign_),
+      gradeRequiredToExecute_(other.gradeRequiredToExecute_)
 {
 }
 
@@ -30,12 +30,42 @@ Form& Form::operator=(const Form& other)
     return (*this);
 }
 
-void beSigned(const Bureaucrat& bureaucrat) {}
+void Form::beSigned(const Bureaucrat& bureaucrat)
+{
+    if (bureaucrat.getGrade() <= this->gradeRequiredToSign_)
+    {
+        this->isSigned_ = true;
+        std::cout << C_GREEN << bureaucrat.getName() << " signed " << this->name_ << C_END << "\n";
+    }
+    else
+        throw GradeTooLowException();
+}
 
-bool getSigned() {}
+std::string Form::getName() const
+{
+    return name_;
+}
 
-int getGradeRequiredToSign() {}
+bool Form::getIsSigned() const
+{
+    return isSigned_;
+}
 
-int getGradeRequiredToExecute() {}
+int Form::getGradeRequiredToSign() const
+{
+    return gradeRequiredToSign_;
+}
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {}
+int Form::getGradeRequiredToExecute() const
+{
+    return gradeRequiredToExecute_;
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& form)
+{
+    std::cout << C_BLUE << "Form: " << form.getName() << "\n"
+              << "Signed: " << std::boolalpha << form.getIsSigned() << std::noboolalpha << "\n"
+              << "Grade to sign: " << form.getGradeRequiredToSign() << "\n"
+              << "Grade to execute: " << form.getGradeRequiredToExecute() << "\n" << C_END;
+    return os;
+}
