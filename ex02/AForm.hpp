@@ -15,6 +15,7 @@ class AForm
         virtual ~AForm() = 0;
 
         void beSigned(const Bureaucrat& bureaucrat);
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
         std::string getName() const;
         bool        getIsSigned() const;
