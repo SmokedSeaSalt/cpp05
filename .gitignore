@@ -2,7 +2,9 @@
 test
 build*
 *.log
+*_shrubbery
 
 #executable names
 bureaucrat
 form
+aform

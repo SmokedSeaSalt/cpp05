@@ -24,12 +24,16 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
     if (AForm::getIsSigned() == false)
-    {
         std::cout << C_RED << "Form " << AForm::getName() << " is not yet signed!\n" << C_END;
-    }
     else
     {
-		//print: drilling noise
-		//print: 50/50 succes/fail and inform <target>
+        //check bureaucrat grade to form execute grade
+        if (executor.getGrade() > AForm::getGradeRequiredToExecute())
+            throw AForm::GradeTooLowException();
+        std::cout << C_BLUE << "Brrrrrr.... ";
+        if (rand() % 2)
+            std::cout << target_ << "robotomy failed.\n" << C_END;
+        else
+            std::cout << target_ << "robotomy succesful.\n" << C_END;
     }
 }

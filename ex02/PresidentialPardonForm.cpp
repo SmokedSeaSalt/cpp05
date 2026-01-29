@@ -29,7 +29,10 @@ void PresidentialPardonForm::execute(Bureaucrat const& executor) const
     }
     else
     {
-        std::cout << C_RED << "Informs that " << target_
+        //check bureaucrat grade to form execute grade
+        if (executor.getGrade() > AForm::getGradeRequiredToExecute())
+            throw AForm::GradeTooLowException();
+        std::cout << C_GREEN << "Informs that " << target_
                   << " has been pardoned by Zaphod Beeblebrox.\n"
                   << C_END;
     }

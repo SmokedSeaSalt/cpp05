@@ -1,5 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "terminalOutput.hpp"
+#include <fstream>
+#include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("RobotomyRequest", 72, 45), target_(target)
@@ -29,6 +31,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
     }
     else
     {
-        // put tree in file
+        //check bureaucrat grade to form execute grade
+        if (executor.getGrade() > AForm::getGradeRequiredToExecute())
+            throw AForm::GradeTooLowException();
+        std::ofstream file;
+
+        file.open(target_ + "_shrubbery");
+        if (!file.is_open())
+        {
+            std::cout << C_RED << "File creation error!\n" << C_END;
+            return;
+        }
+        file << TREE_STRING;
+        file.close();
     }
 }

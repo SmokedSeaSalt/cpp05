@@ -33,7 +33,6 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
     if (bureaucrat.getGrade() <= this->gradeRequiredToSign_)
     {
         this->isSigned_ = true;
-        std::cout << C_GREEN << bureaucrat.getName() << " signed " << this->name_ << C_END << "\n";
     }
     else
         throw GradeTooLowException();

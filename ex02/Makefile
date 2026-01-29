@@ -2,7 +2,7 @@
 # Basics                                                                       #
 ################################################################################
 
-NAME = form
+NAME = aform
 CPP = c++
 CPPFLAGS = -Wall -Werror -Wextra -MMD
 CCDEBUG = -g
@@ -15,7 +15,10 @@ BUILD_DIR = build
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
-		AForm.cpp
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJ = $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC))
 DEP = ${OBJ:.o=.d}
