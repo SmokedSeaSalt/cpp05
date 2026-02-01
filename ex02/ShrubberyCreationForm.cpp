@@ -4,14 +4,14 @@
 #include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-    : AForm("RobotomyRequest", 72, 45), target_(target)
+    : AForm("ShrubberyCreation", 145, 137), target_(target)
 {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-    : AForm("PresidentialPardon", 72, 45), target_(other.target_)
+    : AForm("ShrubberyCreation", 145, 137), target_(other.target_)
 {
 }
 

@@ -12,9 +12,9 @@ int main(void)
     try
     {
         Bureaucrat b("Test", 1);
-        AForm* forma = new PresidentialPardonForm("TestTarget");
-        AForm* formb = new RobotomyRequestForm("TestTarget");
-        AForm* formc = new ShrubberyCreationForm("TestTarget");
+        AForm*     forma = new PresidentialPardonForm("TestTarget");
+        AForm*     formb = new RobotomyRequestForm("TestTarget");
+        AForm*     formc = new ShrubberyCreationForm("TestTarget");
         b.signForm(*forma);
         b.signForm(*formb);
         b.signForm(*formc);
@@ -33,5 +33,50 @@ int main(void)
     {
         std::cout << C_RED << e.what() << C_END;
     }
-    //make test for not sufficient grade
+    std::cout << C_YELLOW << "\nTest invalid execution\n" << C_END;
+    try
+    {
+        Bureaucrat b("Sign", 1);
+        Bureaucrat c("Execute", 150);
+
+        AForm* forma = new PresidentialPardonForm("TestTarget");
+        b.signForm(*forma);
+        c.executeForm(*forma);
+        delete forma;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << C_RED << e.what() << C_END;
+    }
+
+    try
+    {
+        Bureaucrat b("Sign", 1);
+        Bureaucrat c("Execute", 150);
+
+        AForm* forma = new RobotomyRequestForm("TestTarget");
+        b.signForm(*forma);
+        c.executeForm(*forma);
+        delete forma;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << C_RED << e.what() << C_END;
+    }
+
+    try
+    {
+        Bureaucrat b("Sign", 1);
+        Bureaucrat c("Execute", 150);
+
+        AForm* forma = new ShrubberyCreationForm("TestTarget");
+        b.signForm(*forma);
+        c.executeForm(*forma);
+        delete forma;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << C_RED << e.what() << C_END;
+    }
+
 }

@@ -9,7 +9,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
-    : AForm("PresidentialPardon", 72, 45), target_(other.target_)
+    : AForm("RobotomyRequest", 72, 45), target_(other.target_)
 {
 }
 
