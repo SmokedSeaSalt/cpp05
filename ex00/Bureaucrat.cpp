@@ -2,6 +2,8 @@
 #include "terminalOutput.hpp"
 #include <iostream>
 
+Bureaucrat::Bureaucrat(){}
+
 Bureaucrat::Bureaucrat(const std::string& name, const int& grade) : name_(name)
 {
     if (grade < 1)

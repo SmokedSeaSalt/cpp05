@@ -16,6 +16,8 @@ class RobotomyRequestForm : public AForm
 
     private:
         std::string target_;
+
+        RobotomyRequestForm();
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP

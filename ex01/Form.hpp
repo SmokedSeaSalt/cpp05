@@ -37,6 +37,8 @@ class Form
         bool              isSigned_;
         const int         gradeRequiredToSign_;
         const int         gradeRequiredToExecute_;
+
+        Form();
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);

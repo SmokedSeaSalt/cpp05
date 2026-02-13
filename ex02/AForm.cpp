@@ -3,6 +3,8 @@
 #include "terminalOutput.hpp"
 #include <string>
 
+AForm::AForm() : gradeRequiredToSign_(0), gradeRequiredToExecute_(0) {}
+
 AForm::AForm(std::string name, int gradeToSign, int GradeToExecute)
     : name_(name), gradeRequiredToSign_(gradeToSign), gradeRequiredToExecute_(GradeToExecute)
 {

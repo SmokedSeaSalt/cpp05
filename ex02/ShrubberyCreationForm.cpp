@@ -3,6 +3,10 @@
 #include <fstream>
 #include <iostream>
 
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation", 145, 137), target_("")
+{
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreation", 145, 137), target_(target)
 {
@@ -31,7 +35,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
     }
     else
     {
-        //check bureaucrat grade to form execute grade
+        // check bureaucrat grade to form execute grade
         if (executor.getGrade() > AForm::getGradeRequiredToExecute())
             throw AForm::GradeTooLowException();
         std::ofstream file;

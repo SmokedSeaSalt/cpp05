@@ -3,6 +3,8 @@
 #include "terminalOutput.hpp"
 #include <string>
 
+Form::Form() : gradeRequiredToSign_(0), gradeRequiredToExecute_(0) {}
+
 Form::Form(std::string name, int gradeToSign, int GradeToExecute)
     : name_(name), gradeRequiredToSign_(gradeToSign), gradeRequiredToExecute_(GradeToExecute)
 {
@@ -16,7 +18,8 @@ Form::Form(std::string name, int gradeToSign, int GradeToExecute)
 Form::~Form() {}
 
 Form::Form(const Form& other)
-    : name_(other.name_), isSigned_(other.isSigned_), gradeRequiredToSign_(other.gradeRequiredToSign_),
+    : name_(other.name_), isSigned_(other.isSigned_),
+      gradeRequiredToSign_(other.gradeRequiredToSign_),
       gradeRequiredToExecute_(other.gradeRequiredToExecute_)
 {
 }
@@ -64,16 +67,17 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
     std::cout << C_BLUE << "Form: " << form.getName() << "\n"
               << "Signed: " << std::boolalpha << form.getIsSigned() << std::noboolalpha << "\n"
               << "Grade to sign: " << form.getGradeRequiredToSign() << "\n"
-              << "Grade to execute: " << form.getGradeRequiredToExecute() << "\n" << C_END;
+              << "Grade to execute: " << form.getGradeRequiredToExecute() << "\n"
+              << C_END;
     return os;
 }
 
 const char* Form::GradeTooHighException::what() const noexcept
 {
-	return "Form: Grade too high!\n";
+    return "Form: Grade too high!\n";
 }
 
 const char* Form::GradeTooLowException::what() const noexcept
 {
-	return "Form: Grade too low!\n";
+    return "Form: Grade too low!\n";
 }

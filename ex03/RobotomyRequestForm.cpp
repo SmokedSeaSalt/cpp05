@@ -1,6 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "terminalOutput.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequest", 72, 45), target_("") {}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
     : AForm("RobotomyRequest", 72, 45), target_(target)
 {
@@ -27,7 +29,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
         std::cout << C_RED << "Form " << AForm::getName() << " is not yet signed!\n" << C_END;
     else
     {
-        //check bureaucrat grade to form execute grade
+        // check bureaucrat grade to form execute grade
         if (executor.getGrade() > AForm::getGradeRequiredToExecute())
             throw AForm::GradeTooLowException();
         std::cout << C_BLUE << "Brrrrrr.... ";

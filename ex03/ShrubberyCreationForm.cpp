@@ -3,6 +3,10 @@
 #include <fstream>
 #include <iostream>
 
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation", 145, 137), target_("")
+{
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreation", 145, 137), target_(target)
 {

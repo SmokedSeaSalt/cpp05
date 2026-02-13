@@ -3,6 +3,8 @@
 #include "terminalOutput.hpp"
 #include <iostream>
 
+Bureaucrat::Bureaucrat() {};
+
 Bureaucrat::Bureaucrat(const std::string& name, const int& grade) : name_(name)
 {
     if (grade < 1)
@@ -65,18 +67,19 @@ void Bureaucrat::signForm(Form& form) const
         form.beSigned(*this);
         std::cout << this->name_ << " signed " << form.getName() << "\n";
     }
-    catch(const std::exception& e)
+    catch (const std::exception& e)
     {
-        std::cout << C_RED << this->name_ << " couldn't sign " << form.getName() << " because " << e.what() << C_END << '\n';
+        std::cout << C_RED << this->name_ << " couldn't sign " << form.getName() << " because "
+                  << e.what() << C_END << '\n';
     }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return "Bureaucrat: Grade too high!\n";
+    return "Bureaucrat: Grade too high!\n";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	return "Bureaucrat: Grade too low!\n";
+    return "Bureaucrat: Grade too low!\n";
 }
